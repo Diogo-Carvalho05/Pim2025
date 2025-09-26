@@ -1,0 +1,35 @@
+CREATE TABLE Atendimento (
+    Id SERIAL PRIMARY KEY,
+    IdPaciente INT NOT NULL,
+    DataCriação DATE NOT NULL,
+    Peso FLOAT NOT NULL,
+    Altura FLOAT NOT NULL,
+    PerimetroQuadril FLOAT,
+    DobraCutaneaSuprailiaca FLOAT,
+    DobraCutaneaTricipital FLOAT,
+    DobraCutaneaBiceps FLOAT,
+    PorcentagemMassaGorda FLOAT,
+    PorcentagemMassaMuscular FLOAT,
+    PressaoArterial VARCHAR(6),
+    Colesterol FLOAT,
+    Triglicerideos FLOAT,
+    MetabolicaBasalDiaria FLOAT,
+    MassaMuscular FLOAT,
+     MassaGorda FLOAT,
+  CONSTRAINT fk_Atendimento FOREIGN KEY (IdPaciente) REFERENCES Paciente(Id) ON DELETE CASCADE
+);
+
+
+
+CREATE TABLE Metas (
+    Id SERIAL PRIMARY KEY,
+    IdPaciente INT NOT NULL,
+    PesoMeta FLOAT,
+    PorcentagemMassaGordaMeta FLOAT,
+    IndiceMassaCorporalMeta FLOAT,
+    NivelAtividadeFisicaMeta VARCHAR(50),
+    TaxaMetabolicaBasalMeta FLOAT,
+    NecessidadesEnergeticasDiariaMeta FLOAT,
+    CONSTRAINT fk_metas_paciente FOREIGN KEY (IdPaciente) REFERENCES Paciente(Id) ON DELETE CASCADE,
+    CONSTRAINT uk_metas_paciente UNIQUE (IdPaciente) -- Garante apenas uma meta por paciente
+);

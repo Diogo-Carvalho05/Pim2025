@@ -1,0 +1,21 @@
+CREATE TABLE usuarios
+(
+    id integer NOT NULL,
+    nomeusuario VARCHAR(100) NOT NULL,
+    senha VARCHAR(10) NOT NULL,
+    datadecriacao timestamp NOT NULL,
+    tipodeusuario VARCHAR(50) NOT NULL
+)
+
+
+CREATE TYPE status_agendamento AS ENUM ('pendente', 'confirmado', 'cancelado');
+
+CREATE TABLE agenda
+(
+    id integer NOT NULL,
+    pacientes_id integer NOT NULL,
+    data_agendamento date NOT NULL,
+    horario_agendamento time without time zone NOT NULL,
+    status status_agendamento DEFAULT 'pendente',
+    FOREIGN KEY (pacientes_id) REFERENCES paciente (id)
+)

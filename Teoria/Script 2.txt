@@ -1,0 +1,104 @@
+CREATE TABLE Alimento (
+    Id INT PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    Quantidade FLOAT,
+    Energia FLOAT,
+    Gordura FLOAT,
+    Carboidratos FLOAT,
+    Proteina FLOAT,
+    Colesterol FLOAT,
+    FibraAlimentare FLOAT
+);
+
+CREATE TABLE GruposAlimento (
+    Id INT PRIMARY KEY,
+    IdAlimento INT,
+    Descricao VARCHAR(255) NOT NULL,
+    FOREIGN KEY (IdAlimento) REFERENCES Alimento(Id)
+);
+
+
+CREATE TABLE CafeDaManha (
+    Id INT PRIMARY KEY,
+    IdPaciente INT,
+    FOREIGN KEY (IdPaciente) REFERENCES Paciente(Id)
+);
+
+CREATE TABLE LancheManha (
+    Id INT PRIMARY KEY,
+    IdPaciente INT,
+    FOREIGN KEY (IdPaciente) REFERENCES Paciente(Id)
+);
+
+CREATE TABLE Almoco (
+    Id INT PRIMARY KEY,
+    IdPaciente INT,
+    FOREIGN KEY (IdPaciente) REFERENCES Paciente(Id)
+);
+
+CREATE TABLE LancheTarde (
+    Id INT PRIMARY KEY,
+    IdPaciente INT,
+    FOREIGN KEY (IdPaciente) REFERENCES Paciente(Id)
+);
+
+CREATE TABLE Janta (
+    Id INT PRIMARY KEY,
+    IdPaciente INT,
+    FOREIGN KEY (IdPaciente) REFERENCES Paciente(Id)
+);
+
+CREATE TABLE Ceia (
+    Id INT PRIMARY KEY,
+    IdPaciente INT,
+    FOREIGN KEY (IdPaciente) REFERENCES Paciente(Id)
+);
+
+CREATE TABLE AlimentoCafeDaManha (
+    Id INT PRIMARY KEY,
+    IdCafeDaManha INT,
+    IdAlimento INT,
+    FOREIGN KEY (IdCafeDaManha) REFERENCES CafeDaManha(Id),
+    FOREIGN KEY (IdAlimento) REFERENCES Alimento(Id)
+);
+
+CREATE TABLE AlimentoLancheDaManha (
+    Id INT PRIMARY KEY,
+    IdLancheDaManha INT,
+    IdAlimento INT,
+    FOREIGN KEY (IdLancheDaManha) REFERENCES LancheManha(Id),
+    FOREIGN KEY (IdAlimento) REFERENCES Alimento(Id)
+);
+
+CREATE TABLE AlimentoAlmoco (
+    Id INT PRIMARY KEY,
+    IdAlmoco INT,
+    IdAlimento INT,
+    FOREIGN KEY (IdAlmoco) REFERENCES Almoco(Id),
+    FOREIGN KEY (IdAlimento) REFERENCES Alimento(Id)
+);
+
+CREATE TABLE AlimentoLancheDaTarde (
+    Id INT PRIMARY KEY,
+    IdLancheDaTarde INT,
+    IdAlimento INT,
+    FOREIGN KEY (IdLancheDaTarde) REFERENCES LancheTarde(Id),
+    FOREIGN KEY (IdAlimento) REFERENCES Alimento(Id)
+);
+
+CREATE TABLE AlimentoJanta (
+    Id INT PRIMARY KEY,
+    IdJanta INT,
+    IdAlimento INT,
+    FOREIGN KEY (IdJanta) REFERENCES Janta(Id),
+    FOREIGN KEY (IdAlimento) REFERENCES Alimento(Id)
+);
+
+CREATE TABLE AlimentoCeia (
+    Id INT PRIMARY KEY,
+    IdCeia INT,
+    IdAlimento INT,
+    FOREIGN KEY (IdCeia) REFERENCES Ceia(Id),
+    FOREIGN KEY (IdAlimento) REFERENCES Alimento(Id)
+);
+
