@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36203.30 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BemAgendado", "BemAgendado.csproj", "{250354BD-41E7-4B74-92BC-2E515E896937}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{250354BD-41E7-4B74-92BC-2E515E896937}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{250354BD-41E7-4B74-92BC-2E515E896937}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{250354BD-41E7-4B74-92BC-2E515E896937}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{250354BD-41E7-4B74-92BC-2E515E896937}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C3CF78B0-1974-4AE5-87F9-63AFE01BB518}
+	EndGlobalSection
+EndGlobal

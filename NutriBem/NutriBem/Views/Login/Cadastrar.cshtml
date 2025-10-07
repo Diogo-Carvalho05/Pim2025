@@ -1,0 +1,66 @@
+﻿@model NutriBem.Models.PacienteModels
+
+<h2>Criar Nova Conta</h2>
+
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div style="background: green; color: white; padding: 10px; margin-bottom: 10px;">
+        @TempData["MensagemSucesso"]
+    </div>
+}
+@if (TempData["MensagemErro"] != null)
+{
+    <div style="background: red; color: white; padding: 10px; margin-bottom: 10px;">
+        @TempData["MensagemErro"]
+    </div>
+}
+
+<form method="post" action="/Login/Cadastrar">
+    @Html.AntiForgeryToken()
+
+    <div style="margin-bottom: 10px;">
+        <input type="text" name="nome" placeholder="Nome Completo" required style="width: 100%; padding: 8px;">
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        <input type="email" name="email" placeholder="Email" required style="width: 100%; padding: 8px;">
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        <input type="password" name="senha" placeholder="Senha" required style="width: 100%; padding: 8px;">
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        <input type="text" name="cpf" placeholder="CPF" required style="width: 100%; padding: 8px;">
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        <input type="text" name="telefone" placeholder="Telefone" required style="width: 100%; padding: 8px;">
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        <input type="text" name="endereco" placeholder="Endereço" required style="width: 100%; padding: 8px;">
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        <input type="date" name="datanascimento" required style="width: 100%; padding: 8px;">
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <select name="genero" required style="width: 100%; padding: 8px;">
+            <option value="">Selecione o gênero</option>
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+        </select>
+    </div>
+
+    <button type="submit" style="width: 100%; padding: 12px; background: green; color: white; border: none; margin-bottom: 10px;">
+        Cadastrar
+    </button>
+
+    <div style="text-align: center;">
+        <a href="/Login" style="display: block; width: 100%; padding: 12px; background: blue; color: white; text-decoration: none;">
+            Voltar para Login
+        </a>
+    </div>
+</form>
