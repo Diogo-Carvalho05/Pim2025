@@ -10,31 +10,3 @@ CREATE TABLE Paciente (
     DataCriacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     DataAtualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
-CREATE TABLE HistoricoPessoalClinico (
-    Id SERIAL PRIMARY KEY,
-    PacienteId INT NOT NULL REFERENCES Paciente(Id) ON DELETE CASCADE,
-    QualidadeSono VARCHAR(100),
-    Fumante VARCHAR(1) CHECK (Fumante IN ('S', 'N')) DEFAULT 'N',
-    BebeAlcool VARCHAR(1) CHECK (BebeAlcool IN ('S', 'N')) DEFAULT 'N',
-    AtividadeFisica VARCHAR(100),
-    Patologia TEXT,
-    Medicacao TEXT,
-    OutrasInformacoes TEXT,
-    DataCriacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    DataAtualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE TABLE HistoricoAlimentar (
-    Id SERIAL PRIMARY KEY,
-    PacienteId INT NOT NULL REFERENCES Paciente(Id) ON DELETE CASCADE,
-    HorarioQueAcorda TIME,
-    HorarioQueDorme TIME,
-    Alergia TEXT,
-    IntoleranciaAlimentar TEXT,
-    DeficienciaNutricional TEXT,
-    IngestaoDeAgua VARCHAR(100),
-    OutrasInformacoes TEXT,
-    DataCriacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	 DataAtualizacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
